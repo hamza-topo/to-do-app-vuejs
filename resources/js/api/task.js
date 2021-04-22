@@ -12,5 +12,10 @@ export default {
 
     add(data) {
         return client.post('/task', data);
+    },
+
+    destroy(id){
+        return client.delete('/tasks/'+id,{_method: 'delete'})
     }
+
 }

@@ -20,9 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('')->namespace('Api')->group(function(Illuminate\Routing\Router $router){
   
-    /**Admin products Routes */
-    $router->get('tasks','TaskController@index')->name('tasks');
+    /**Tasks  Routes */
+    $router->get('/tasks','TaskController@index')->name('tasks');
     $router->post('/task','TaskController@store');
-  
+    $router->delete('/tasks/{id}','TaskController@destroy');
     
 });

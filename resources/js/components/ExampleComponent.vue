@@ -15,7 +15,7 @@
                                         {{task.description}}
                                     </div>
                                     <div class="col-md-2">
-                                        Actions
+                                        <delete-task-component :taskId="task.id"></delete-task-component>
                                     </div>
                                 </div> 
                             </div>
@@ -67,6 +67,13 @@ import taskApi from '../api/task'
                 }
                 $('#exampleModalCenter').modal('hide')
             });
+                //event listener : once the task is deleted we remove the task by id from list of tasks
+            this.$root.$on('taskItemDeleted',id=>{
+                this.tasks = this.tasks.filter(item => {
+	    			return item.id !== id
+	    		})
+            })
+
         },
         
     }
